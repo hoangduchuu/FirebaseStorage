@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "54404031074-btubqlvgh5nddndfglmf1hs65aupm598.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hoang.uploadimg",
+            "certificate_hash": "ACA63F3F1A16AECCC4A7DA0BD6866B49F090DACA"
+          }
+        },
+        {
           "client_id": "54404031074-jr1q2dorb41fdevgavrid40gaiojd08k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

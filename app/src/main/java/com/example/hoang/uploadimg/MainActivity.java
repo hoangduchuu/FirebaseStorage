@@ -23,39 +23,39 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUES_CODE = 999 ;
-    private StorageReference mStorageRef;
+    private static final String BASE_URL = "gs://newconsoleduchuu.appspot.com" ;
+    private static final String TAG = "TAGER";
     private Button btnPhoto;
     private ImageView ivPhoto;
-    private FirebaseStorage storage;
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+     StorageReference storageRef = storage.getReferenceFromUrl(BASE_URL);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
 
-        mStorageRef = storage.getReferenceFromUrl("gs://newconsoleduchuu.appspot.com");
+        storageRef = storage.getReferenceFromUrl(BASE_URL);
+
+
 
         btnPhoto = (Button) findViewById(R.id.btnPh);
         ivPhoto = (ImageView) findViewById(R.id.ivPhoto);
-
         setUpIv();
-        setUpclick();
+        clickSave();
     }
 
-    private void setUpclick() {
+    private void clickSave() {
         btnPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                StorageReference mountainsRef = mStorageRef.child("Image"+ calendar.getTimeInMillis());
+                StorageReference mountainsRef = storageRef.child("mountains.jpg" + Calendar.getInstance().getTimeInMillis());
 
-// Get the data from an ImageView as bytes
                 ivPhoto.setDrawingCacheEnabled(true);
                 ivPhoto.buildDrawingCache();
                 Bitmap bitmap = ivPhoto.getDrawingCache();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                 byte[] data = baos.toByteArray();
 
                 UploadTask uploadTask = mountainsRef.putBytes(data);
@@ -63,19 +63,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
                         // Handle unsuccessful uploads
-                        Toast.makeText(MainActivity.this, "Loi", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
                         Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Toast.makeText(MainActivity.this, "abc" + downloadUrl, Toast.LENGTH_SHORT).show();
                     }
                 });
+                Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     private void setUpIv() {
         ivPhoto.setOnClickListener(new View.OnClickListener() {
