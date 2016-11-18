@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "54404031074",
+    "firebase_url": "https://newconsoleduchuu.firebaseio.com",
+    "project_id": "newconsoleduchuu",
+    "storage_bucket": "newconsoleduchuu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54404031074:android:a68791af01120b25",
+        "android_client_info": {
+          "package_name": "com.example.hoang.uploadimg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54404031074-jr1q2dorb41fdevgavrid40gaiojd08k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hoang.uploadimg",
+            "certificate_hash": "A52034757605779D75A883890C72139ABD4452BA"
+          }
+        },
+        {
+          "client_id": "54404031074-p4vkv2c5pvlj1fj74nmem01q9radkp3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRdYAaw4gSWZq1OeiY9BPmOfyhdJuRhuY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54404031074-p4vkv2c5pvlj1fj74nmem01q9radkp3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
